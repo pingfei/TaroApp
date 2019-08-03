@@ -1,0 +1,148 @@
+import Taro, { Component, Config } from '@tarojs/taro'
+import { View, Text, Map, Button, Picker, PickerView, pickerViewColumn } from '@tarojs/components'
+import './time-picker.scss'
+
+export default class Index extends Component {
+  constructor () {
+    super()
+    this.state = {}
+  }
+
+  /**
+   * 指定config的类型声明为: Taro.Config
+   *
+   * 由于 typescript 对于 object 类型推导只能推出 Key 的基本类型
+   * 对于像 navigationBarTextStyle: 'black' 这样的推导出的类型是 string
+   * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
+   */
+  config: Config = {
+    navigationBarTitleText: '选择器'
+  }
+
+  componentWillMount () { }
+
+  componentDidMount () {}
+
+  componentWillUnmount () { }
+
+  componentDidHide () { }
+
+// 时间选择器 start ===================
+  componentDidShow () {
+    this.initPickerTime()
+  }
+  initPickerTime() {
+    let ymdArr = this.pickerDay()
+    let YMD = JSON.parse(JSON.stringify(ymdArr))
+    YMD[0] = '今天'
+    YMD[1] = '明天'
+    let showYMD = YMD.map((item, index)=>{
+      if (index == 0) {
+        return '今天'
+      } else if (index == 1) {
+        return '明天'
+      } else {
+        return item.slice(5)
+      }
+    })
+    let showHours = this.pickerHour()
+    this.setState({
+      showMultiArray: [showYMD, showHours],
+      ymdArr
+    })
+  }
+  // 月-日
+  pickerDay() {
+    let ymdArr: Array<string> = []
+    let nowTime = new Date();
+    let month = nowTime.getMonth()+1
+    for (let i = 0; i <= 28; i++) {
+      let day = nowTime.getDate()
+      nowTime.setDate(day+1)
+      let y = nowTime.getFullYear()
+      let m = nowTime.getMonth()+1
+      let d = nowTime.getDate()
+
+      let ymd = y + '/' + m + '/' + d
+      // let ymd =  m + '/' + d
+      ymdArr.push(ymd)
+    }
+    return ymdArr
+  }
+  // 小时
+  pickerHour (num = 0) {
+    let date = new Date();
+    let hour = date.getHours();
+    let showHours: Array<string> = []
+    if (num) {
+      hour = 0
+    }
+    for (let i = hour+1; i < 24; i++) {
+      if (i < 10) {
+        showHours.push("0" + i + "时");
+      } else {
+        showHours.push(i + "时");
+      }
+    }
+    return showHours
+  }
+  // 选择器列滚动事件
+  columnChange(e) {
+    let col = e.detail.column
+    let value = e.detail.value
+    let arr
+    let showMultiArray = this.state.showMultiArray
+    if (col==0) {
+      showMultiArray[1] = this.pickerHour(value)
+      this.setState({
+        showMultiArray
+      })
+    }
+  }
+
+  //服务时间选择
+  onChangeDate = e => {
+    let showMulti = this.state.showMultiArray
+
+    let ymdArr = this.state.ymdArr
+    let showmd = showMulti[0][e.target.value[0]] // 选择的 月-日
+    let showh = showMulti[1][e.target.value[1]].slice(0, -1) // 选择的小时
+
+    let ymd = ymdArr[e.target.value[0]] // 年-月-日
+
+    let year:any = '';
+    let date =  ymd + " " + showh + ':00'; // 传给后台的时间
+
+
+    let today = new Date()
+    if (showmd != "今天" && showmd != "明天") {
+      year = today.getFullYear() + '/'
+    }
+    let selectDate = year + showmd + " " + showh + ':00'; // 显示时间
+    this.setState({
+      date: new Date(date),
+      selectDate: selectDate
+    })
+  }
+  // 时间选择器 end ===================
+
+
+
+  render () {
+    return (
+      <View className='index'>
+        <View className="info-item">
+          <View className="item-title">
+            预约时间
+          </View>
+          <Picker mode='multiSelector' range={this.state.showMultiArray} value={[0, 0]} onChange={this.onChangeDate.bind(this)} 
+          onColumnChange={this.columnChange.bind(this)}>
+            <View className={this.state.selectDate ? "item-content" : "item-content color999"}>
+              {this.state.selectDate ? this.state.selectDate : "请选择 >"}
+            </View>
+          </Picker>
+        </View>
+      </View>
+    )
+  }
+}

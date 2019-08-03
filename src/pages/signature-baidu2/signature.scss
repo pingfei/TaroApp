@@ -1,0 +1,45 @@
+.signature {
+  padding: 30Px 15Px 0;
+}
+.canvas-box {
+  border: 1Px solid #e4e4e4;
+  margin-bottom: 30Px;
+  position: relative;
+  .canvas {
+    position: relative;
+    width: 100%;
+    height: 345Px;
+  }
+  .shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // z-index: 100;
+    background: transparent;
+  }
+}
+.buttons {
+  Button:after {
+    border: 0;
+  }
+  Button {
+    width: 160Px;
+    height: 40Px;
+    line-height: 40Px;
+    font-size: 15Px;
+    margin: 0;
+    text-align: center;
+    border: 1Px solid #F8AF18;
+  }
+  .confirm {
+    color: #fff;
+    background: #F8AF18;
+  }
+  .cancel {
+    color: #F8AF18;
+    background: #fff;
+
+  }
+}
