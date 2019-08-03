@@ -1,11 +1,49 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Text, Map, Button, Picker, PickerView, pickerViewColumn } from '@tarojs/components'
-import './time-picker.scss'
+import { View, Text, Map, Button, Picker } from '@tarojs/components'
+import './map.scss'
+import mapIcon from '../../../assets/images/mapicon.png'
+const QQMapWX: any = require("../../../utils/qqmap-wx-jssdk.min.js");
+let qqmapskd;
 
 export default class Index extends Component {
   constructor () {
     super()
-    this.state = {}
+    this.state = {
+      markers: [
+        {
+          iconPath: mapIcon,
+          id: 0,
+          latitude: 30.277531,
+          longitude: 120.045258,
+          width: 36,
+          height: 44
+        }, {
+          iconPath: mapIcon,
+          id: 0,
+          latitude: 30.285509,
+          longitude: 120.035362,
+          width: 36,
+          height: 44,
+          callout: {
+            content: '预计10分钟后到达',
+            color: '#000',
+            borderRadius: '5px',
+            display: 'ALWAYS',
+            padding: '5',
+            borderWidth: '1',
+            borderColor: 'block'
+          }
+        }
+      ],
+      latitude:30.285509,
+      longitude: 120.035362,
+
+
+      showMultiArray: [], // 时间选择器显示的时间
+      selectDate: '',
+      ymdArr: [], // 年月日的数组
+      date: '' // 传给后端的中国标准时间
+    }
   }
 
   /**
@@ -16,16 +54,40 @@ export default class Index extends Component {
    * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
    */
   config: Config = {
-    navigationBarTitleText: '选择器'
+    navigationBarTitleText: '首页'
   }
 
   componentWillMount () { }
 
-  componentDidMount () {}
+  componentDidMount () {
+    qqmapskd = new QQMapWX({
+      key: 'SMZBZ-P5MRG-PDWQY-IMVSQ-EHPI3-LOBAI'
+    })
+    qqmapskd.geocoder({
+      address: '浙江省杭州市余杭区五常街道广福寺',
+      success (res) {
+        console.log(res)
+      }
+    })
+  }
 
   componentWillUnmount () { }
 
   componentDidHide () { }
+
+  goTosignature() {
+    Taro.navigateTo({
+      url: '/pages/signature/signature'
+    })
+  }
+
+  changePosition () {
+    let markers = this.state.markers
+    markers[0].latitude =  31.277531
+    this.setState({
+      markers
+    })
+  }
 
 // 时间选择器 start ===================
   componentDidShow () {
@@ -131,17 +193,8 @@ export default class Index extends Component {
   render () {
     return (
       <View className='index'>
-        <View className="info-item">
-          <View className="item-title">
-            预约时间
-          </View>
-          <Picker mode='multiSelector' range={this.state.showMultiArray} value={[0, 0]} onChange={this.onChangeDate.bind(this)} 
-          onColumnChange={this.columnChange.bind(this)}>
-            <View className={this.state.selectDate ? "item-content" : "item-content color999"}>
-              {this.state.selectDate ? this.state.selectDate : "请选择 >"}
-            </View>
-          </Picker>
-        </View>
+        <Map id="map" className="map" markers={this.state.markers} latitude={this.state.latitude} longitude={this.state.longitude}/>
+        <Button className='bottom-primary-btn add-btn primary-btn text-size-30' onClick={this.changePosition.bind(this)}>新增</Button>
       </View>
     )
   }

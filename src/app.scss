@@ -8,6 +8,30 @@
   url('//at.alicdn.com/t/font_1107175_ez31khmjss8.svg#iconfont') format('svg');
 }
 
+
+page {
+  color: #333;
+  font-size: 30px;
+  font-family: 'PingFang-SC-Medium';
+  font-weight: 500;
+}
+.list {
+  padding: 0 30px;
+  border-top: 2px solid #D2D2D2;
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  border-bottom: 2px solid #E4E4E4;
+  &::after {
+    content: '>'
+  }
+}
+
+
 .layout-flex {
   display: flex !important;
 }

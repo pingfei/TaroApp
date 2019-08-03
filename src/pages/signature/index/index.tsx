@@ -13,36 +13,30 @@ export default class AuthList extends Component {
 
   componentWillMount () {}
 
-  goIndex (path) {
+  goSignature (path) {
     Taro.navigateTo({
-      url: '/pages/' + path + '/index/index'
+      url: '/pages/signature/' + path+ '/signature'
     })
   }
 
   render() {
     return (
       <View className="list">
-        <View className="item" onClick={this.goIndex.bind(this, 'map')}>
+
+        <View className="item" onClick={this.goSignature.bind(this, 'signature-my')}>
           <View className="item-title">
-            <Text>地图</Text>
+            <Text>签名 - 我的</Text>
           </View>
         </View>
 
-        <View className="item" onClick={this.goIndex.bind(this, 'picker')}>
+        <View className="item" onClick={this.goSignature.bind(this, 'signature-baidu1')}>
           <View className="item-title">
-            <Text>选择器</Text>
+            <Text>签名 - 别人的</Text>
           </View>
         </View>
-
-        <View className="item" onClick={this.goIndex.bind(this, 'share')}>
+        <View className="item" onClick={this.goSignature.bind(this, 'signature-baidu2')}>
           <View className="item-title">
-            <Text>分享</Text>
-          </View>
-        </View>
-
-        <View className="item" onClick={this.goIndex.bind(this, 'signature')}>
-          <View className="item-title">
-            <Text>签名</Text>
+            <Text>签名 - 别人的2</Text>
           </View>
         </View>
 

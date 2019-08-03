@@ -1,6 +1,6 @@
 {
 	"miniprogramRoot": "dist/",
-	"projectname": "myApp",
+	"projectname": "TaroApp",
 	"description": "test map",
 	"appid": "wxc93a03b0116e4524",
 	"setting": {

@@ -1,7 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View, Text , Button, Canvas, CoverView, CoverImage} from '@tarojs/components';
 import './signature.scss'
-import '../../app.scss'
 
 
 // 签名页面

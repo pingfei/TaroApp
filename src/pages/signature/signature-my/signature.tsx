@@ -1,6 +1,6 @@
 import Taro , { Component } from '@tarojs/taro';
 import { View, Text, Button, Canvas, CoverView, CoverImage } from '@tarojs/components';
-import './signature-my.scss'
+import './signature.scss'
 
 let ctx = Taro.createCanvasContext('canvas', this);
 let startX = 0;

@@ -21,11 +21,24 @@ class App extends Component {
   config: Config = {
     pages: [
       'pages/index/index',
-      'pages/signature-my/signature-my',
-      'pages/signature-baidu/signature-baidu',
-      'pages/signature-baidu2/signature',
-      'pages/map/map',
-      'pages/time-picker/time-picker'
+      
+      // 地图
+      'pages/map/index/index',
+      'pages/map/map-time/map',
+
+      // 选择器
+      'pages/picker/index/index',
+      'pages/picker/year-day-time/picker',
+
+      // 分享
+      'pages/share/index/index',
+      'pages/share/canvas-share/share',
+
+      // 签名
+      'pages/signature/index/index',
+      'pages/signature/signature-my/signature',
+      'pages/signature/signature-baidu1/signature',
+      'pages/signature/signature-baidu2/signature',
     ],
     window: {
       backgroundTextStyle: 'light',
