@@ -3,7 +3,7 @@ import { View, Text } from '@tarojs/components';
 import './index.scss'
 
 
-export default class AuthList extends Component {
+export default class PickerIndex extends Component {
 
    config = {
        navigationBarTitleText: '身份认证'
