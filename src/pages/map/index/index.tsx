@@ -6,7 +6,7 @@ import './index.scss'
 export default class MapIndex extends Component {
 
    config = {
-       navigationBarTitleText: '身份认证'
+       navigationBarTitleText: '地图'
   }
 
   state={}

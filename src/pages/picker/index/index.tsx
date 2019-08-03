@@ -6,7 +6,7 @@ import './index.scss'
 export default class PickerIndex extends Component {
 
    config = {
-       navigationBarTitleText: '身份认证'
+       navigationBarTitleText: '选择器'
   }
 
   state={}

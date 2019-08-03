@@ -6,7 +6,7 @@ import './index.scss'
 export default class ShareIndex extends Component {
 
    config = {
-       navigationBarTitleText: '身份认证'
+       navigationBarTitleText: '分享'
   }
 
   state={}

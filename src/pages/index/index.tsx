@@ -6,7 +6,7 @@ import './index.scss'
 export default class Index extends Component {
 
    config = {
-       navigationBarTitleText: '身份认证'
+       navigationBarTitleText: '首页'
   }
 
   state={}

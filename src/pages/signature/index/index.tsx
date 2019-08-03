@@ -6,7 +6,7 @@ import './index.scss'
 export default class SignatureIndex extends Component {
 
    config = {
-       navigationBarTitleText: '身份认证'
+       navigationBarTitleText: '签名'
   }
 
   state={}
