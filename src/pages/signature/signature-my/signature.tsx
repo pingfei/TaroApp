@@ -2,16 +2,11 @@ import Taro , { Component } from '@tarojs/taro';
 import { View, Text, Button, Canvas, CoverView, CoverImage } from '@tarojs/components';
 import './signature.scss'
 
-let ctx = Taro.createCanvasContext('canvas', this);
+let ctx: any = Taro.createCanvasContext('canvas', this);
 let startX = 0;
 let startY = 0;
 let canvasw = 0;
 let canvash = 0;
-
-ctx.setStrokeStyle('#000000');
-ctx.setLineWidth(4);
-ctx.setLineCap('round');
-ctx.setLineJoin('round');
 
 export default class Signature extends Component {
 
@@ -22,6 +17,14 @@ export default class Signature extends Component {
     isPaint: false
   }
 
+  initCanvas() {
+    ctx = Taro.createCanvasContext('canvas', this);
+    
+    ctx.setStrokeStyle('#000000');
+    ctx.setLineWidth(4);
+    ctx.setLineCap('round');
+    ctx.setLineJoin('round');
+  }
   canvasStart(e) {
     startX = e.changedTouches[0].x
     startY =  e.changedTouches[0].y
@@ -67,7 +70,6 @@ export default class Signature extends Component {
     // 生成图片 
     Taro.canvasToTempFilePath({
       canvasId: 'canvas',
-      fileType: 'jpg',
       success: res => {
         console.log(res.tempFilePath)
         // this.uploadToAliyun(res.tempFilePath)
@@ -106,9 +108,12 @@ export default class Signature extends Component {
   componentWillMount () {}
   componentDidMount () {
     this.getCanvasSize()
+    this.initCanvas()
   } 
   componentWillReceiveProps (nextProps,nextContext) {} 
-  componentWillUnmount () {} 
+  componentWillUnmount () {
+    ctx = null
+  } 
   componentDidShow () {} 
   componentDidHide () {} 
   componentDidCatchError () {} 
