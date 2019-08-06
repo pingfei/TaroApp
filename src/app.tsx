@@ -39,6 +39,10 @@ class App extends Component {
       'pages/signature/signature-my/signature',
       'pages/signature/signature-baidu1/signature',
       'pages/signature/signature-baidu2/signature',
+
+      // 菜单
+      'pages/menu/index/index',
+      'pages/menu/linkage-menu/menu',
     ],
     window: {
       backgroundTextStyle: 'light',

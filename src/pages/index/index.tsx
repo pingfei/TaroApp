@@ -46,6 +46,12 @@ export default class Index extends Component {
           </View>
         </View>
 
+        <View className="item" onClick={this.goIndex.bind(this, 'menu')}>
+          <View className="item-title">
+            <Text>菜单</Text>
+          </View>
+        </View>
+
       </View>
     );
   }
