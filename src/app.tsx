@@ -37,6 +37,7 @@ class App extends Component {
       // 签名
       'pages/signature/index/index',
       'pages/signature/signature-my/signature',
+      'pages/signature/plugin-e/signature',
       'pages/signature/signature-baidu1/signature',
       'pages/signature/signature-baidu2/signature',
 
@@ -49,6 +50,12 @@ class App extends Component {
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
+    },
+    plugins: {
+      signaturePlugin: {
+        version: '0.1.3',
+        provider: 'wxa36f86e29fb562eb'
+      }
     }
   }
 

@@ -32,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -45,6 +45,13 @@
 					"id": -1,
 					"name": "pages/menu/linkage-menu/menu",
 					"pathName": "pages/menu/linkage-menu/menu",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/signature/plugin/signature",
+					"pathName": "pages/signature/plugin/signature",
 					"scene": null
 				}
 			]

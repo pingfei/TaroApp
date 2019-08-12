@@ -29,6 +29,12 @@ export default class SignatureIndex extends Component {
           </View>
         </View>
 
+        <View className="item" onClick={this.goSignature.bind(this, 'plugin')}>
+          <View className="item-title">
+            <Text>签名 - 插件: e签名</Text>
+          </View>
+        </View>
+
         <View className="item" onClick={this.goSignature.bind(this, 'signature-baidu1')}>
           <View className="item-title">
             <Text>签名 - 别人的</Text>
