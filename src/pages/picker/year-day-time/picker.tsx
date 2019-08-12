@@ -58,14 +58,14 @@ export default class Index extends Component {
     let month = nowTime.getMonth()+1
     for (let i = 0; i <= 28; i++) {
       let day = nowTime.getDate()
-      nowTime.setDate(day+1)
       let y = nowTime.getFullYear()
       let m = nowTime.getMonth()+1
       let d = nowTime.getDate()
-
+      
       let ymd = y + '/' + m + '/' + d
       // let ymd =  m + '/' + d
       ymdArr.push(ymd)
+      nowTime.setDate(day+1)
     }
     return ymdArr
   }
