@@ -1,63 +1,51 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Text, Map, Button, Picker } from '@tarojs/components'
+import { View, Map, Button } from '@tarojs/components'
 import './map.scss'
 import mapIcon from '../../../assets/images/mapicon.png'
 const QQMapWX: any = require("../../../utils/qqmap-wx-jssdk.min.js");
 let qqmapskd;
 
 export default class Index extends Component {
-  constructor () {
-    super()
-    this.state = {
-      markers: [
-        {
-          iconPath: mapIcon,
-          id: 0,
-          latitude: 30.277531,
-          longitude: 120.045258,
-          width: 36,
-          height: 44
-        }, {
-          iconPath: mapIcon,
-          id: 0,
-          latitude: 30.285509,
-          longitude: 120.035362,
-          width: 36,
-          height: 44,
-          callout: {
-            content: '预计10分钟后到达',
-            color: '#000',
-            borderRadius: '5px',
-            display: 'ALWAYS',
-            padding: '5',
-            borderWidth: '1',
-            borderColor: 'block'
-          }
+  state = {
+    markers: [
+      {
+        iconPath: mapIcon,
+        id: 0,
+        latitude: 30.277531,
+        longitude: 120.045258,
+        width: 36,
+        height: 44
+      }, {
+        iconPath: mapIcon,
+        id: 0,
+        latitude: 30.285509,
+        longitude: 120.035362,
+        width: 36,
+        height: 44,
+        callout: {
+          content: '预计10分钟后到达',
+          color: '#000',
+          borderRadius: '5px',
+          display: 'ALWAYS',
+          padding: '5',
+          borderWidth: '1',
+          borderColor: 'block'
         }
-      ],
-      latitude:30.285509,
-      longitude: 120.035362,
+      }
+    ],
+    latitude:30.285509,
+    longitude: 120.035362,
 
 
-      showMultiArray: [], // 时间选择器显示的时间
-      selectDate: '',
-      ymdArr: [], // 年月日的数组
-      date: '' // 传给后端的中国标准时间
-    }
+    showMultiArray: [], // 时间选择器显示的时间
+    selectDate: '',
+    ymdArr: [], // 年月日的数组
+    date: '' // 传给后端的中国标准时间
   }
 
-  /**
-   * 指定config的类型声明为: Taro.Config
-   *
-   * 由于 typescript 对于 object 类型推导只能推出 Key 的基本类型
-   * 对于像 navigationBarTextStyle: 'black' 这样的推导出的类型是 string
-   * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
-   */
   config: Config = {
     navigationBarTitleText: '首页'
   }
-
-  componentWillMount () { }
 
   componentDidMount () {
     qqmapskd = new QQMapWX({
@@ -70,10 +58,6 @@ export default class Index extends Component {
       }
     })
   }
-
-  componentWillUnmount () { }
-
-  componentDidHide () { }
 
   goTosignature() {
     Taro.navigateTo({

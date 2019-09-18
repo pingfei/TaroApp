@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro';
-import { View, Text , Button, Canvas, CoverView, CoverImage} from '@tarojs/components';
+import { View , Button, Canvas } from '@tarojs/components';
 import './signature.scss'
 
 
@@ -15,9 +15,8 @@ var canvasw = 0;
 var canvash = 0;
 
 export default class Signature extends Component {
-
-   config = {
-       navigationBarTitleText: '用户签字'
+  config = {
+    navigationBarTitleText: '用户签字'
   }
 
   state={}
@@ -86,11 +85,7 @@ export default class Signature extends Component {
     context.draw(true);
   }
 
-  componentWillMount () {
-    
-  }
   componentDidMount () {
-
     this.setContext()
     // 获取canvas的宽高
     const query = Taro.createSelectorQuery()
@@ -109,14 +104,9 @@ export default class Signature extends Component {
     context.setLineCap('round');
     context.setLineJoin('round');
   }
-  componentWillReceiveProps (nextProps,nextContext) {} 
   componentWillUnmount () {
     this.clearDraw()
-  } 
-  componentDidShow () {} 
-  componentDidHide () {} 
-  componentDidCatchError () {} 
-  componentDidNotFound () {} 
+  }
   render() {
     return (
       <View className="signature">

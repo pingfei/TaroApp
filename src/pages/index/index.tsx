@@ -4,14 +4,9 @@ import './index.scss'
 
 
 export default class Index extends Component {
-
-   config = {
-       navigationBarTitleText: '首页'
+  config = {
+    navigationBarTitleText: '首页'
   }
-
-  state={}
-
-  componentWillMount () {}
 
   goIndex (path) {
     Taro.navigateTo({

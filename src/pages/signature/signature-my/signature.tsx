@@ -1,5 +1,5 @@
 import Taro , { Component } from '@tarojs/taro';
-import { View, Text, Button, Canvas, CoverView, CoverImage } from '@tarojs/components';
+import { View, Button, Canvas } from '@tarojs/components';
 import './signature.scss'
 
 let ctx: any = Taro.createCanvasContext('canvas', this);
@@ -10,8 +10,8 @@ let canvash = 0;
 
 export default class Signature extends Component {
 
-   config = {
-       navigationBarTitleText: '签名认证'
+  config = {
+    navigationBarTitleText: '签名认证'
   }
   state = {
     isPaint: false
@@ -105,19 +105,13 @@ export default class Signature extends Component {
     })
   }
 
-  componentWillMount () {}
   componentDidMount () {
     this.getCanvasSize()
     this.initCanvas()
   } 
-  componentWillReceiveProps (nextProps,nextContext) {} 
   componentWillUnmount () {
     ctx = null
   } 
-  componentDidShow () {} 
-  componentDidHide () {} 
-  componentDidCatchError () {} 
-  componentDidNotFound () {} 
   render() {
     return (
       <View className="signature">

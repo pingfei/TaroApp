@@ -4,16 +4,11 @@ import './index.scss'
 
 
 export default class ShareIndex extends Component {
-
-   config: Config = {
-       navigationBarTitleText: '分享',
-       navigationBarTextStyle: 'white',
-       navigationBarBackgroundColor: '#eee'
+  config: Config = {
+    navigationBarTitleText: '分享',
+    navigationBarTextStyle: 'white',
+    navigationBarBackgroundColor: '#eee'
   }
-
-  state={}
-
-  componentWillMount () {}
 
   goShare (path) {
     Taro.navigateTo({

@@ -47,8 +47,6 @@ export default class Signature extends Component {
     console.log('fail')
   }
   
-  componentDidMount () {} 
-  
   render() {
     return (
       <View className="signature">

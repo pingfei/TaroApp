@@ -2,16 +2,10 @@ import Taro , { Component } from '@tarojs/taro';
 import { View, Text } from '@tarojs/components';
 import './index.scss'
 
-
 export default class PickerIndex extends Component {
-
-   config = {
-       navigationBarTitleText: '选择器'
+  config = {
+    navigationBarTitleText: '选择器'
   }
-
-  state={}
-
-  componentWillMount () {}
 
   goPicker (path) {
     Taro.navigateTo({
@@ -27,7 +21,6 @@ export default class PickerIndex extends Component {
             <Text>年-月-日</Text>
           </View>
         </View>
-
       </View>
     );
   }

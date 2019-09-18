@@ -4,14 +4,9 @@ import './index.scss'
 
 
 export default class SignatureIndex extends Component {
-
-   config = {
-       navigationBarTitleText: '签名'
+  config = {
+    navigationBarTitleText: '签名'
   }
-
-  state={}
-
-  componentWillMount () {}
 
   goSignature (path) {
     Taro.navigateTo({

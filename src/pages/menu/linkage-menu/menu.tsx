@@ -1,37 +1,22 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Text, Image, ScrollView } from '@tarojs/components'
+import { View, Image, ScrollView } from '@tarojs/components'
 import './menu.scss'
 import menu from './data'
-console.log(menu)
 
 let flag = false; // 用于判断滚动前是否有点击操作
 
 export default class Cat extends Component {
-  constructor(props: any, context: any) {
-    super(props, context);
-    this.state = {
-      catArray: [],
-      catParentArray: [],
-      catModel: {},
-      selectIndex: 0,
-      scrollHeight: 0
-    }
+  state = {
+    catArray: [],
+    catParentArray: [],
+    catModel: {},
+    selectIndex: 0,
+    scrollHeight: 0
   }
 
   config: Config = {
     navigationBarTitleText: '商品分类'
   }
-
-  componentWillMount() {}
-
-  componentDidMount() {}
-
-  componentWillUnmount() {}
-
-  componentDidShow() {}
-
-  componentDidHide() {}
-
 
   // 点击左侧类目栏
   leftTap(e) {

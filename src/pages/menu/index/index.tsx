@@ -4,14 +4,9 @@ import './index.scss'
 
 
 export default class MapIndex extends Component {
-
-   config = {
-       navigationBarTitleText: '地图'
+  config = {
+    navigationBarTitleText: '地图'
   }
-
-  state={}
-
-  componentWillMount () {}
 
   goMenu (path) {
     Taro.navigateTo({
