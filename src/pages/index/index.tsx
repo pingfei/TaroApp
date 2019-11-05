@@ -1,10 +1,10 @@
-import Taro , { Component } from '@tarojs/taro';
+import Taro , { Component, Config } from '@tarojs/taro';
 import { View, Text } from '@tarojs/components';
 import './index.scss'
 
 
-export default class Index extends Component {
-  config = {
+export default class Index extends Component<any, any> {
+  config: Config = {
     navigationBarTitleText: '首页'
   }
 
@@ -44,6 +44,11 @@ export default class Index extends Component {
         <View className="item" onClick={this.goIndex.bind(this, 'menu')}>
           <View className="item-title">
             <Text>菜单</Text>
+          </View>
+        </View>
+        <View className="item" onClick={this.goIndex.bind(this, 'contact')}>
+          <View className="item-title">
+            <Text>客服</Text>
           </View>
         </View>
 

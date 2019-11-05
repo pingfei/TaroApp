@@ -1,76 +1,11 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Map, Button } from '@tarojs/components'
-import './map.scss'
-import mapIcon from '../../../assets/images/mapicon.png'
-const QQMapWX: any = require("../../../utils/qqmap-wx-jssdk.min.js");
-let qqmapskd;
+import { View, Picker } from '@tarojs/components'
+import './picker.scss'
 
 export default class Index extends Component<any, any> {
-  state = {
-    markers: [
-      {
-        iconPath: mapIcon,
-        id: 0,
-        latitude: 30.277531,
-        longitude: 120.045258,
-        width: 36,
-        height: 44
-      }, {
-        iconPath: mapIcon,
-        id: 0,
-        latitude: 30.285509,
-        longitude: 120.035362,
-        width: 36,
-        height: 44,
-        callout: {
-          content: '预计10分钟后到达',
-          color: '#000',
-          borderRadius: '5px',
-          display: 'ALWAYS',
-          padding: '5',
-          borderWidth: '1',
-          borderColor: 'block'
-        }
-      }
-    ],
-    latitude:30.285509,
-    longitude: 120.035362,
-
-
-    showMultiArray: [], // 时间选择器显示的时间
-    selectDate: '',
-    ymdArr: [], // 年月日的数组
-    date: '' // 传给后端的中国标准时间
-  }
 
   config: Config = {
-    navigationBarTitleText: '首页'
-  }
-
-  componentDidMount () {
-    qqmapskd = new QQMapWX({
-      key: 'SMZBZ-P5MRG-PDWQY-IMVSQ-EHPI3-LOBAI'
-    })
-    qqmapskd.geocoder({
-      address: '浙江省杭州市余杭区五常街道广福寺',
-      success (res) {
-        console.log(res)
-      }
-    })
-  }
-
-  goTosignature() {
-    Taro.navigateTo({
-      url: '/pages/signature/signature'
-    })
-  }
-
-  changePosition () {
-    let markers = this.state.markers
-    markers[0].latitude =  31.277531
-    this.setState({
-      markers
-    })
+    navigationBarTitleText: '选择器'
   }
 
 // 时间选择器 start ===================
@@ -104,14 +39,14 @@ export default class Index extends Component<any, any> {
     let month = nowTime.getMonth()+1
     for (let i = 0; i <= 28; i++) {
       let day = nowTime.getDate()
-      nowTime.setDate(day+1)
       let y = nowTime.getFullYear()
       let m = nowTime.getMonth()+1
       let d = nowTime.getDate()
-
+      
       let ymd = y + '/' + m + '/' + d
       // let ymd =  m + '/' + d
       ymdArr.push(ymd)
+      nowTime.setDate(day+1)
     }
     return ymdArr
   }
@@ -177,8 +112,17 @@ export default class Index extends Component<any, any> {
   render () {
     return (
       <View className='index'>
-        <Map id="map" className="map" markers={this.state.markers} latitude={this.state.latitude} longitude={this.state.longitude}/>
-        <Button className='bottom-primary-btn add-btn primary-btn text-size-30' onClick={this.changePosition.bind(this)}>新增</Button>
+        <View className="info-item">
+          <View className="item-title">
+            预约时间
+          </View>
+          <Picker mode='multiSelector' range={this.state.showMultiArray} value={[0, 0]} onChange={this.onChangeDate.bind(this)} 
+          onColumnChange={this.columnChange.bind(this)}>
+            <View className={this.state.selectDate ? "item-content" : "item-content color999"}>
+              {this.state.selectDate ? this.state.selectDate : "请选择 >"}
+            </View>
+          </Picker>
+        </View>
       </View>
     )
   }

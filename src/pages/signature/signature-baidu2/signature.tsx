@@ -1,9 +1,9 @@
-import Taro , { Component } from '@tarojs/taro';
+import Taro , { Component, Config } from '@tarojs/taro';
 import { View, Button, Canvas } from '@tarojs/components';
 
-export default class signature extends Component {
+export default class signature extends Component<any, any> {
 
-  config = {
+  config: Config = {
     navigationBarTitleText: ''
   }
 

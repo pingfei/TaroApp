@@ -1,50 +1,36 @@
 $cF8: #F8AF18;
 .signature {
   height: 100%;
-  width: 690px;
-  padding: 0 30px;
-  
+  width: 100%;
 }
 .canvas-box {
-  width: 345Px;
   border: 1Px solid #e4e4e4;
   margin-bottom: 30Px;
   position: relative;
-  .canvas {
-    width: 100%;
-    height: 345Px;
-  }
-  .shade {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    // z-index: 100;
-    background: transparent;
-  }
 }
+.canvas {
+  width: 100%;
+  height: 345Px;
+}
+
 .buttons {
   margin-bottom: 20Px;
   margin-top: 20Px;
-  Button:after {
-    border: 0;
-  }
-  Button {
-    width: 320px;
-    height: 80px;
-    line-height: 80px;
-    margin: 0;
-    text-align: center;
-    border: 1Px solid $cF8;
-    font-size: 30px;
-  }
-  .confirm {
-    color: #fff;
-    background: $cF8;
-  }
-  .cancel {
-    color: $cF8;
-    background: #fff;
-  }
+}
+Button {
+  width: 320px;
+  height: 80px;
+  line-height: 80px;
+  margin: 0;
+  text-align: center;
+  border: 1Px solid $cF8;
+  font-size: 30px;
+}
+.confirm {
+  color: #fff;
+  background: $cF8;
+}
+.cancel {
+  color: $cF8;
+  background: #fff;
 }

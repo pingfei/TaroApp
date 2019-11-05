@@ -1,13 +1,10 @@
-@font-face {
-  font-family: 'iconfont';  /* project id 1107175 */
-  src: url('//at.alicdn.com/t/font_1107175_ez31khmjss8.eot');
-  src: url('//at.alicdn.com/t/font_1107175_ez31khmjss8.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_1107175_ez31khmjss8.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_1107175_ez31khmjss8.woff') format('woff'),
-  url('//at.alicdn.com/t/font_1107175_ez31khmjss8.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_1107175_ez31khmjss8.svg#iconfont') format('svg');
-}
-
+$orange: #ffd20d;
+$green: #16AB24;
+$red: #E71F10;
+$gray: #A5A5A5;
+$blue: #1E9EFF;
+$white: #fff;
+$black: #000;
 
 page {
   color: #333;
@@ -17,6 +14,25 @@ page {
   box-sizing: border-box;
   border-top: 2px solid #D2D2D2;
 }
+
+@font-face {
+  font-family: 'iconfont';  /* project id 1107175 */
+  src: url('//at.alicdn.com/t/font_1107175_ez31khmjss8.eot');
+  src: url('//at.alicdn.com/t/font_1107175_ez31khmjss8.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1107175_ez31khmjss8.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1107175_ez31khmjss8.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1107175_ez31khmjss8.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1107175_ez31khmjss8.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16Px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .item {
   display: flex;
   justify-content: space-between;
@@ -29,15 +45,10 @@ page {
   }
 }
 
-
 .layout-flex {
-  display: flex !important;
-}
-.layout-inline-flex {
-  display: inline-flex !important;
-}
-.flex-row {
-  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .flex-col {
   flex-direction: column;
@@ -54,18 +65,142 @@ page {
 .flex-content-end {
   justify-content: flex-end;
 }
-.flex-content-between {
-  justify-content: space-between;
-}
 .flex-content-around {
   justify-content: space-around;
-}
-.flex-align-center {
-  align-items: center;
 }
 .flex-align-start {
   align-items: flex-start;
 }
 .flex-align-end {
   align-items: flex-end;
+}
+.box-sizing {
+  box-sizing: border-box;
+}
+
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+ }
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+.float-clear::after {
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+}
+Button::after {
+  border: 0;
+  outline: 0;
+}
+
+.orange-text {
+  color: $orange;
+}
+.green-text {
+  color: $green;
+}
+.red-text {
+  color: $red;
+}
+.gray-text {
+  color: $gray;
+}
+.blue-text {
+  color: $blue;
+}
+.white-text {
+  color: $white;
+}
+.black-text {
+  color: $black;
+}
+.orange_bg {
+  background: $orange !important;
+}
+.green_bg {
+  background: $green !important;
+}
+.red_bg {
+  background: $red !important;
+}
+.gray_bg {
+  background: $gray !important;
+}
+.blue_bg {
+  background: $blue !important;
+}
+.white-bg {
+  background: $white !important;
+}
+.black-bg {
+  background: $black !important;
+}
+
+/* 遮罩后，滚动穿透，未解决 */
+.hidden {
+  overflow: hidden;
+}
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-size-22 {
+  font-size: 22px !important;
+}
+.text-size-24 {
+  font-size: 24px !important;
+}
+.text-size-26 {
+  font-size: 26px !important;
+}
+.text-size-28 {
+  font-size: 28px !important;
+}
+.text-size-30 {
+  font-size: 30px !important;
+}
+.text-size-32 {
+  font-size: 32px !important;
+}
+.text-size-34 {
+  font-size: 34px !important;
+}
+.text-size-36 {
+  font-size: 36px !important;
+}
+.text-size-38 {
+  font-size: 38px !important;
+}
+.text-size-40 {
+  font-size: 40px !important;
+}
+.text-size-42 {
+  font-size: 42px !important;
+}
+.text-size-44 {
+  font-size: 44px !important;
 }

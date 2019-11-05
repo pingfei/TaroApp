@@ -3,7 +3,7 @@ import { View, Text } from '@tarojs/components';
 import './index.scss'
 
 
-export default class ShareIndex extends Component {
+export default class ShareIndex extends Component<any, any> {
   config: Config = {
     navigationBarTitleText: '分享',
     navigationBarTextStyle: 'white',

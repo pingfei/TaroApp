@@ -1,4 +1,4 @@
-import Taro, { Component } from '@tarojs/taro';
+import Taro, { Component, Config } from '@tarojs/taro';
 import { View , Button, Canvas } from '@tarojs/components';
 import './signature.scss'
 
@@ -14,8 +14,8 @@ var arrz: Array<number> = [];
 var canvasw = 0;
 var canvash = 0;
 
-export default class Signature extends Component {
-  config = {
+export default class Signature extends Component<any, any> {
+  config: Config = {
     navigationBarTitleText: '用户签字'
   }
 
@@ -116,7 +116,7 @@ export default class Signature extends Component {
           
         </View>
         <View>
-          <View className="layout-flex flex-content-between buttons">
+          <View className="layout-flex buttons">
             <Button className="cancel" onClick={this.clearDraw}>清除</Button>
             <Button className="confirm" onClick={this.getImg}>提交</Button>
           </View>

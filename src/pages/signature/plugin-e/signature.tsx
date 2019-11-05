@@ -1,10 +1,10 @@
-import Taro , { Component } from '@tarojs/taro';
+import Taro , { Component, Config } from '@tarojs/taro';
 import { View } from '@tarojs/components';
 import './signature.scss'
 
-export default class Signature extends Component {
+export default class Signature extends Component<any, any> {
 
-   config = {
+   config: Config = {
     navigationBarTitleText: 'e 签名',
     usingComponents: {
       "digital-signature": "plugin://signaturePlugin/digitalSignature"

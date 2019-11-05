@@ -3,7 +3,7 @@ import { View, Canvas } from '@tarojs/components';
 import './share.scss'
 
 
-export default class CanvasShare extends Component {
+export default class CanvasShare extends Component<any, any> {
   config: Config = {
     navigationBarTitleText: '分享'
   }

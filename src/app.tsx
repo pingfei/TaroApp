@@ -23,6 +23,7 @@ class App extends Component {
       // 选择器
       'pages/picker/index/index',
       'pages/picker/year-day-time/picker',
+      'pages/picker/year-day-time2/picker',
 
       // 分享
       'pages/share/index/index',
@@ -38,6 +39,10 @@ class App extends Component {
       // 菜单
       'pages/menu/index/index',
       'pages/menu/linkage-menu/menu',
+
+      // 客服
+      'pages/contact/index/index',
+      'pages/contact/contact/contact'
     ],
     window: {
       backgroundTextStyle: 'light',

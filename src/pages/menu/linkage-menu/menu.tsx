@@ -5,7 +5,7 @@ import menu from './data'
 
 let flag = false; // 用于判断滚动前是否有点击操作
 
-export default class Cat extends Component {
+export default class Cat extends Component<any, any> {
   state = {
     catArray: [],
     catParentArray: [],

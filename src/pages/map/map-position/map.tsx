@@ -1,12 +1,12 @@
-import Taro , { Component } from '@tarojs/taro';
+import Taro , { Component, Config } from '@tarojs/taro';
 import { View, Button, Map} from '@tarojs/components';
 import './map.scss'
 import mapIcon from '../../../assets/images/mapicon.png'
 const QQMapWX: any = require("../../../utils/qqmap-wx-jssdk.min.js");
 let qqmapskd;
 
-export default class MapPosition extends Component {
-  config = {
+export default class MapPosition extends Component<any, any> {
+  config: Config = {
     navigationBarTitleText: '定位'
   }
 

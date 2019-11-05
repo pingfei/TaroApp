@@ -5,62 +5,62 @@
 }
 .cat-box{
   background-color: white;
-  .cat-main{
-      .cat-left{
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100Px;
-          .cat-item{
-              line-height: 50Px;
-              color: #666;
-              text-align: center;
-              font-size: 13Px;
+}
+.cat-main{
+}
+.cat-left{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100Px;
+    .cat-item{
+        line-height: 50Px;
+        color: #666;
+        text-align: center;
+        font-size: 13Px;
 
-          }
-          .chose-cat{
-              background-color: #FAF4E3;
-              color: #F8AF18;
-          }
-      }
-  }
-  .cat-detail-scroll{
-      overflow: hidden;
-      height: 100vh;
-      box-sizing: border-box;
-      padding: 5Px;
-      width: auto;
-      margin-left: 100Px;
-      .cat-detail-main{
-          margin-bottom: 20Px;
-          .cat-title{
-              font-size:14Px;
-              font-weight:600;
-              color:rgba(51,51,51,1);
-              line-height:40Px;
-              text-align: center;
-          }
-          .cat-detail-box{
-              overflow: hidden;
-              .cat-item{
-                  width: 33%;
-                  margin-bottom: 15Px;
-                  text-align: center;
-                  float: left;
-                  .cat-img{
-                      width: 45Px;
-                      height: 45Px;
-                  }
-                  .cat-text{
-                      height: 34Px;
-                      font-size:12Px;
-                      font-weight:400;
-                      color:rgba(51,51,51,1);
-                      line-height:17Px;
-                      overflow: hidden;
-                  }
-              }
-          }
-      }
-  }
+    }
+    .chose-cat{
+        background-color: #FAF4E3;
+        color: #F8AF18;
+    }
+}
+.cat-detail-scroll{
+  overflow: hidden;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 5Px;
+  width: auto;
+  margin-left: 100Px;
+}
+.cat-detail-main{
+  margin-bottom: 20Px;
+}
+.cat-title{
+    font-size:14Px;
+    font-weight:600;
+    color:#333;
+    line-height:40Px;
+    text-align: center;
+}
+.cat-detail-box{
+    overflow: hidden;
+    .cat-item{
+        width: 33%;
+        margin-bottom: 15Px;
+        text-align: center;
+        float: left;
+        .cat-img{
+            width: 45Px;
+            height: 45Px;
+        }
+        .cat-text{
+            height: 34Px;
+            font-size:12Px;
+            font-weight:400;
+            color:rgba(51,51,51,1);
+            line-height:17Px;
+            overflow: hidden;
+        }
+    }
 }
