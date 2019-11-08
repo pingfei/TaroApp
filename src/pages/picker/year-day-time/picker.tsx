@@ -5,7 +5,13 @@ import './picker.scss'
 export default class Index extends Component {
 
   config: Config = {
-    navigationBarTitleText: '选择器'
+    navigationBarTitleText: '时间点'
+  }
+
+  state = {
+    showMultiArray: [], // 时间选择器显示的时间
+    ymdArr: [], // 年月日的数组
+    prevIndex: 0 // 选择前的 第一列的index
   }
 
 // 时间选择器 start ===================
@@ -70,13 +76,25 @@ export default class Index extends Component {
   // 选择器列滚动事件
   columnChange(e) {
     let col = e.detail.column
-    let value = e.detail.value
+    let index = e.detail.value
     let arr
     let showMultiArray = this.state.showMultiArray
-    if (col==0) {
-      showMultiArray[1] = this.pickerHour(value)
+    if (col == 0) {
+      let flag = 0 // 判断是否要初始化 小时列表  0：初始化，非0：不初始化
+      let prevIndex = this.state.prevIndex
+      
+      if (index) { // 当前选择的index； index != 0
+        flag = prevIndex / index
+      } else { // index == 0
+        flag = 0
+      }
+      if (flag) return
+      showMultiArray[1] = this.pickerHour(index)
       this.setState({
         showMultiArray
+      })
+      this.setState({
+        prevIndex: index
       })
     }
   }
@@ -104,6 +122,8 @@ export default class Index extends Component {
       date: new Date(date),
       selectDate: selectDate
     })
+    console.log(date)
+    console.log(selectDate)
   }
   // 时间选择器 end ===================
 
@@ -116,8 +136,13 @@ export default class Index extends Component {
           <View className="item-title">
             预约时间
           </View>
-          <Picker mode='multiSelector' range={this.state.showMultiArray} value={[0, 0]} onChange={this.onChangeDate.bind(this)} 
-          onColumnChange={this.columnChange.bind(this)}>
+          <Picker 
+            mode='multiSelector' 
+            range={this.state.showMultiArray} 
+            value={[0, 0]} 
+            onChange={this.onChangeDate.bind(this)} 
+            onColumnChange={this.columnChange.bind(this)}
+          >
             <View className={this.state.selectDate ? "item-content" : "item-content color999"}>
               {this.state.selectDate ? this.state.selectDate : "请选择 >"}
             </View>

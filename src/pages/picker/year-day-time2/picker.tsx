@@ -5,7 +5,12 @@ import './picker.scss'
 export default class Index extends Component<any, any> {
 
   config: Config = {
-    navigationBarTitleText: '选择器'
+    navigationBarTitleText: '时间段选择'
+  }
+  state = {
+    showMultiArray: [], // 时间选择器显示的时间
+    ymdArr: [], // 年月日的数组
+    prevIndex: 0 // 选择前的 第一列的index
   }
 
 // 时间选择器 start ===================
@@ -60,9 +65,11 @@ export default class Index extends Component<any, any> {
     }
     for (let i = hour+1; i < 24; i++) {
       if (i < 10) {
-        showHours.push("0" + i + "时");
+        showHours.push("0" + i + ':00-' + "0" + i + ':30')
+        showHours.push("0" + i + ':30-' + (i+1 == 10 ? 10 : '0' + (i+1)) + ':00')
       } else {
-        showHours.push(i + "时");
+        showHours.push(i + ':00-' + i + ':30')
+        showHours.push(i + ':30-' + (i+1 == 24 ? '00' : (i+1)) + ':00')
       }
     }
     return showHours
@@ -70,13 +77,24 @@ export default class Index extends Component<any, any> {
   // 选择器列滚动事件
   columnChange(e) {
     let col = e.detail.column
-    let value = e.detail.value
-    let arr
+    let index = e.detail.value
     let showMultiArray = this.state.showMultiArray
-    if (col==0) {
-      showMultiArray[1] = this.pickerHour(value)
+    if (col == 0) {
+      let flag = 0 // 判断是否要初始化 小时列表  0：初始化，非0：不初始化
+      let prevIndex = this.state.prevIndex
+      
+      if (index) { // 当前选择的index； index != 0
+        flag = prevIndex / index
+      } else { // index == 0
+        flag = 0
+      }
+      if (flag) return
+      showMultiArray[1] = this.pickerHour(index)
       this.setState({
         showMultiArray
+      })
+      this.setState({
+        prevIndex: index
       })
     }
   }
@@ -87,23 +105,27 @@ export default class Index extends Component<any, any> {
 
     let ymdArr = this.state.ymdArr
     let showmd = showMulti[0][e.target.value[0]] // 选择的 月-日
-    let showh = showMulti[1][e.target.value[1]].slice(0, -1) // 选择的小时
+    let showh = showMulti[1][e.target.value[1]] // 选择的小时
 
     let ymd = ymdArr[e.target.value[0]] // 年-月-日
 
     let year:any = '';
-    let date =  ymd + " " + showh + ':00'; // 传给后台的时间
+    let date =  ymd + " " + showh; // 传给后台的时间
 
 
     let today = new Date()
     if (showmd != "今天" && showmd != "明天") {
       year = today.getFullYear() + '/'
     }
-    let selectDate = year + showmd + " " + showh + ':00'; // 显示时间
+    let selectDate = year + showmd + " " + showh; // 显示时间
     this.setState({
       date: new Date(date),
-      selectDate: selectDate
+      selectDate
     })
+    console.log('date: ')
+    console.log(date)
+    console.log('selectDate: ')
+    console.log(selectDate)
   }
   // 时间选择器 end ===================
 

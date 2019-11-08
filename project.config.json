@@ -32,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 7,
 			"list": [
 				{
 					"id": -1,
@@ -73,6 +73,20 @@
 					"id": -1,
 					"name": "pages/signature/signature-my/signature",
 					"pathName": "pages/signature/signature-my/signature",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/picker/year-day-time2/picker",
+					"pathName": "pages/picker/year-day-time2/picker",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/picker/year-day-time/picker",
+					"pathName": "pages/picker/year-day-time/picker",
 					"query": "",
 					"scene": null
 				}
