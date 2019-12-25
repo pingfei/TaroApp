@@ -42,7 +42,12 @@ class App extends Component {
 
       // 客服
       'pages/contact/index/index',
-      'pages/contact/contact/contact'
+      'pages/contact/contact/contact',
+
+      // 图片
+      'pages/image/index/index',
+      'pages/image/image/index',
+      'pages/image/text/index'
     ],
     window: {
       backgroundTextStyle: 'light',

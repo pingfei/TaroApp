@@ -51,6 +51,11 @@ export default class Index extends Component<any, any> {
             <Text>客服</Text>
           </View>
         </View>
+        <View className="item" onClick={this.goIndex.bind(this, 'image')}>
+          <View className="item-title">
+            <Text>图像识别</Text>
+          </View>
+        </View>
 
       </View>
     );
