@@ -10,7 +10,8 @@ export default class Index extends Component<any, any> {
   state = {
     showMultiArray: [], // 时间选择器显示的时间
     ymdArr: [], // 年月日的数组
-    prevIndex: 0 // 选择前的 第一列的index
+    prevIndex: 0, // 选择前的 第一列的index
+    selectDate: '' // 选中的时间
   }
 
 // 时间选择器 start ===================
@@ -78,7 +79,7 @@ export default class Index extends Component<any, any> {
   columnChange(e) {
     let col = e.detail.column
     let index = e.detail.value
-    let showMultiArray = this.state.showMultiArray
+    let showMultiArray: any = this.state.showMultiArray
     if (col == 0) {
       let flag = 0 // 判断是否要初始化 小时列表  0：初始化，非0：不初始化
       let prevIndex = this.state.prevIndex
@@ -104,10 +105,11 @@ export default class Index extends Component<any, any> {
     let showMulti = this.state.showMultiArray
 
     let ymdArr = this.state.ymdArr
-    let showmd = showMulti[0][e.target.value[0]] // 选择的 月-日
-    let showh = showMulti[1][e.target.value[1]] // 选择的小时
+    let value = e.detail ? e.detail.value : e.target.value
+    let showmd = showMulti[0][value[0]] // 选择的 月-日
+    let showh = showMulti[1][value[1]] // 选择的小时
 
-    let ymd = ymdArr[e.target.value[0]] // 年-月-日
+    let ymd = ymdArr[value[0]] // 年-月-日
 
     let year:any = '';
     let date =  ymd + " " + showh; // 传给后台的时间
