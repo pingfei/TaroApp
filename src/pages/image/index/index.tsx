@@ -45,6 +45,9 @@ export default class ImageIndex extends Component<any, any> {
   getAccessToken({type, url, data}) {
     let self = this
     Taro.request({  // 获取ip
+      // grant_type： 必须参数，固定为client_credentials；
+      // client_id： 必须参数，应用的API Key；
+      // client_secret： 必须参数，应用的Secret Key；
       url: 'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=4kAOjPGjeYOeQiYrKHGlo3AD&client_secret=n40W3GIer3fAwgVZBAT44P2TwNrSgoHg',
       method: 'POST',
       success: function (resp) {
@@ -68,6 +71,17 @@ export default class ImageIndex extends Component<any, any> {
         }
       })
   }
+  scanCode() {
+    Taro.scanCode({}).then(res=>{
+      console.log(res)
+      Taro.request({
+        url: 'https://nc.cli.im/qrcoderoute/qrcodeRoute?qrcode_route='+res.result.slice(7)+'&password=',
+        success: function (e) {
+          console.log(e)
+        }
+      })
+    })
+  }
 
   render() {
     return (
@@ -81,6 +95,12 @@ export default class ImageIndex extends Component<any, any> {
         <View className="item" onClick={this.chooseImg.bind(this, 'text')}>
           <View className="item-title">
             <Text>文字识别</Text>
+          </View>
+        </View>
+
+        <View className="item" onClick={this.scanCode}>
+          <View className="item-title">
+            <Text>二维码扫一扫</Text>
           </View>
         </View>
 
