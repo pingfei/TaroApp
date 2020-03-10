@@ -79,7 +79,7 @@ export default class Index extends Component<any, any> {
   pickerHour(num = 0) {
     let date = new Date()
     // let hour = date.getHours() + 1
-    let hour = date.getHours() + 4
+    let hour = date.getHours() + this.range + 1
     let showHours: Array<string> = []
     // 只有当天(num = 0 或 num = undefined)时间点在 30分前(this.nowMinute <= 30)才会执行 生成30分的时间点，
     // 如 8:26，会生成11:30
