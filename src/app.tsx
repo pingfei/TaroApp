@@ -24,6 +24,7 @@ class App extends Component {
       'pages/picker/index/index',
       'pages/picker/year-day-time/picker',
       'pages/picker/year-day-time2/picker',
+      'pages/picker/year-day-time3/picker',
 
       // 分享
       'pages/share/index/index',

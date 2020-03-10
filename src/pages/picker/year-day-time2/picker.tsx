@@ -101,7 +101,7 @@ export default class Index extends Component<any, any> {
   }
 
   //服务时间选择
-  onChangeDate = e => {
+  changeDate = e => {
     let showMulti = this.state.showMultiArray
 
     let ymdArr = this.state.ymdArr
@@ -135,13 +135,16 @@ export default class Index extends Component<any, any> {
 
   render () {
     return (
-      <View className='index'>
+      <View>
         <View className="info-item">
-          <View className="item-title">
-            预约时间
-          </View>
-          <Picker mode='multiSelector' range={this.state.showMultiArray} value={[0, 0]} onChange={this.onChangeDate.bind(this)} 
-          onColumnChange={this.columnChange.bind(this)}>
+          <View className="item-title">预约时间</View>
+          <Picker
+            mode='multiSelector' 
+            range={this.state.showMultiArray} 
+            value={[0, 0]} 
+            onChange={this.changeDate.bind(this)} 
+            onColumnChange={this.columnChange.bind(this)}
+          >
             <View className={this.state.selectDate ? "item-content" : "item-content color999"}>
               {this.state.selectDate ? this.state.selectDate : "请选择 >"}
             </View>
