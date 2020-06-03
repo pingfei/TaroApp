@@ -1,0 +1,26 @@
+.progress {
+  width: 255px;
+  .wx-progress-inner-bar {
+    border-radius: 24px !important; 
+  }
+  .weui-progress__bar {
+
+    border-radius: 24px !important; 
+    
+    }
+}
+
+.progress_out {
+  width: 255px;
+  height: 24px;
+  border-radius: 12px;
+  background: #ccc;
+
+  .progress_inner {
+    width: 255px;
+    height: 24px;
+    border-radius: 12px;
+    background: green;
+    transition: all 2s linear;
+  }
+}

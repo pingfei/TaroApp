@@ -124,10 +124,6 @@ export default class Index extends Component<any, any> {
       date: new Date(date),
       selectDate
     })
-    console.log('date: ')
-    console.log(date)
-    console.log('selectDate: ')
-    console.log(selectDate)
   }
   // 时间选择器 end ===================
 

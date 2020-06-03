@@ -16,10 +16,8 @@ export default class CanvasShare extends Component<any, any> {
     Taro.getImageInfo({
       src: src//服务器返回的图片地址
     }).then(res => {
-      console.log(res)
       this.printCode(res.path)
     }).catch(err => {
-      console.log(err)
       Taro.showToast({
         title: err,
         icon: 'none',

@@ -11,15 +11,15 @@ let canvash = 0;
 export default class Signature extends Component<any, any> {
 
   config: Config = {
-    navigationBarTitleText: '签名认证'
+    navigationBarTitleText: '签字版'
   }
   state = {
-    isPaint: false
+    isPaint: false,
+    tempFilePath: ''
   }
 
   initCanvas() {
     ctx = Taro.createCanvasContext('canvas', this);
-    
     ctx.setStrokeStyle('#000000');
     ctx.setLineWidth(4);
     ctx.setLineCap('round');
@@ -55,7 +55,8 @@ export default class Signature extends Component<any, any> {
     ctx.clearRect(0, 0, canvasw, canvash);
     ctx.draw(true);
     this.setState({
-      isPaint: false
+      isPaint: false,
+      tempFilePath: ''
     })
   }
 
@@ -71,22 +72,15 @@ export default class Signature extends Component<any, any> {
     Taro.canvasToTempFilePath({
       canvasId: 'canvas',
       success: res => {
-        console.log(res.tempFilePath)
+        this.setState({
+          tempFilePath: res.tempFilePath
+        })
         // this.uploadToAliyun(res.tempFilePath)
       },
       fail(err) {
         console.log(err)
       }
     })
-  }
-  uuid(): string {
-    function s4() {
-      return Math.floor((1 + Math.random()) * 0x10000)
-        .toString(16)
-        .substring(1);
-    }
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-      s4() + '-' + s4() + s4() + s4();
   }
 
   // 获取 canvas 的尺寸（宽高）
@@ -134,6 +128,9 @@ export default class Signature extends Component<any, any> {
           <Button className="cancel" onClick={this.clearDraw}>清除</Button>
           <Button className="confirm" onClick={this.createImg.bind(this)}>提交</Button>
         </View>
+
+        <View>图片路径：</View>
+        <View className="word-break">{this.state.tempFilePath}</View>
       </View>
     );
   }

@@ -29,6 +29,12 @@ export default class MapIndex extends Component<any, any> {
           </View>
         </View>
 
+        <View className="item" onClick={this.goMap.bind(this, 'address')}>
+          <View className="item-title">
+            <Text>智能地址识别</Text>
+          </View>
+        </View>
+
       </View>
     );
   }

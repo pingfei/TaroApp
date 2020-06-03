@@ -31,13 +31,17 @@
 		"game": {
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 7,
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/share/canvas-share/share",
-					"pathName": "pages/share/canvas-share/share",
+					"name": "智能地址识别",
+					"pathName": "pages/map/address/map",
 					"query": "",
 					"scene": null
 				},
@@ -45,49 +49,6 @@
 					"id": -1,
 					"name": "pages/menu/linkage-menu/menu",
 					"pathName": "pages/menu/linkage-menu/menu",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/signature/plugin/signature",
-					"pathName": "pages/signature/plugin/signature",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/map/map-position/map",
-					"pathName": "pages/map/map-position/map",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/contact/contact/contact",
-					"pathName": "pages/contact/contact/contact",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/signature/signature-my/signature",
-					"pathName": "pages/signature/signature-my/signature",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/picker/year-day-time2/picker",
-					"pathName": "pages/picker/year-day-time2/picker",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/picker/year-day-time/picker",
-					"pathName": "pages/picker/year-day-time/picker",
-					"query": "",
 					"scene": null
 				}
 			]

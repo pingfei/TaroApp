@@ -19,6 +19,7 @@ class App extends Component {
       'pages/map/index/index',
       'pages/map/map-time/map',
       'pages/map/map-position/map',
+      'pages/map/address/map',
 
       // 选择器
       'pages/picker/index/index',
@@ -48,7 +49,24 @@ class App extends Component {
       // 图片
       'pages/image/index/index',
       'pages/image/image/index',
-      'pages/image/text/index'
+      'pages/image/text/index',
+      // 动画
+      'pages/animation/index/index',
+      'pages/animation/animation/animation',
+      'pages/animation/pull-up/animation',
+      'pages/animation/scale/animation',
+
+      // 登录modal
+      'pages/code/index/index',
+      'pages/code/login/code',
+
+      // 倒计时
+      'pages/setInterval/index/index',
+      'pages/setInterval/more/index',
+
+      // 进度条
+      'pages/progress/index/index',
+      'pages/progress/progress/index'
     ],
     window: {
       backgroundTextStyle: 'light',

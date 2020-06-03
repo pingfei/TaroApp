@@ -54,7 +54,6 @@ export default class MapPosition extends Component<any, any> {
     })
   }
   moveToLocation() {
-    console.log('adf')
     this.mapCtx.moveToLocation({
       latitude: 30.277531,
       longitude: 120.045258

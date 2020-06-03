@@ -1,0 +1,43 @@
+.common {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid red;
+}
+
+@mixin flex() {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  box-sizing: border-box;
+}
+
+.header {
+  @include flex;
+  line-height: 100px;
+  border-bottom: 1px solid #E4E4E4;
+  .title {
+    color: #333;
+    font-weight: bold;
+  }
+  .iconfont {
+    color: #666;
+    font-size: 24px;
+  }
+}
+
+.item {
+  @include flex;
+  line-height: 70px;
+  border-bottom: 1px solid #E4E4E4;
+}
+
+.kn-content {
+  height: 400px;
+}
+.fault-content {
+  height: 600px;
+}

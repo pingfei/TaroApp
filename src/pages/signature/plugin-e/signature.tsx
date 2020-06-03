@@ -36,12 +36,8 @@ export default class Signature extends Component<any, any> {
     })
   }
   signatureDone() {
-    console.log('done')
     let plugin = Taro.requirePlugin("signaturePlugin")
     let res= plugin.getResult()
-    console.log(res)
-    console.log(res[0])
-    console.log(res[0].signature)
   }
   failCallback() {
     console.log('fail')

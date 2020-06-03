@@ -21,8 +21,6 @@ export default class IndentifyText extends Component {
           filePath: tempFilePath, //选择图片返回的相对路径
           encoding: 'base64', //编码格式
           success: res => { //成功的回调
-            console.log(res)
-            console.log('data:image/png;base64,' + res.data)
             // 图片识别
             // this.identifyImage(res.data)
             // 图片识别
@@ -39,7 +37,6 @@ export default class IndentifyText extends Component {
       url: 'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=4kAOjPGjeYOeQiYrKHGlo3AD&client_secret=n40W3GIer3fAwgVZBAT44P2TwNrSgoHg',
       method: 'POST',
       success: function (resp) {
-        console.log(resp)
         Taro.request({  // 获取ip
           // url: 'https://aip.baidubce.com/rest/2.0/image-classify/v1/animal?access_token='+access_token,
           url: 'https://aip.baidubce.com/rest/2.0/image-classify/v2/advanced_general?access_token='+resp.data.access_token,
@@ -62,7 +59,6 @@ export default class IndentifyText extends Component {
       url: 'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=4kAOjPGjeYOeQiYrKHGlo3AD&client_secret=n40W3GIer3fAwgVZBAT44P2TwNrSgoHg',
       method: 'POST',
       success: function (resp) {
-        console.log(resp)
         Taro.request({  // 获取ip
           // url: 'https://aip.baidubce.com/rest/2.0/image-classify/v1/animal?access_token='+access_token,
           url: 'https://aip.baidubce.com/rest/2.0/ocr/v1/general?access_token='+resp.data.access_token,

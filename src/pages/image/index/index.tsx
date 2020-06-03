@@ -21,8 +21,6 @@ export default class ImageIndex extends Component<any, any> {
           filePath: tempFilePath, //选择图片返回的相对路径
           encoding: 'base64', //编码格式
           success: res => { //成功的回调
-            console.log(res)
-            console.log('data:image/png;base64,' + res.data)
             let url = ''
             if (type == 'image') {
               // 图片识别
@@ -51,7 +49,6 @@ export default class ImageIndex extends Component<any, any> {
       url: 'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=4kAOjPGjeYOeQiYrKHGlo3AD&client_secret=n40W3GIer3fAwgVZBAT44P2TwNrSgoHg',
       method: 'POST',
       success: function (resp) {
-        console.log(resp)
         let access_token = resp.data.access_token
         self.identifyHandle({url: url + access_token, data})
       }
@@ -73,7 +70,6 @@ export default class ImageIndex extends Component<any, any> {
   }
   scanCode() {
     Taro.scanCode({}).then(res=>{
-      console.log(res)
       Taro.request({
         url: 'https://nc.cli.im/qrcoderoute/qrcodeRoute?qrcode_route='+res.result.slice(7)+'&password=',
         success: function (e) {

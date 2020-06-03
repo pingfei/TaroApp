@@ -11,6 +11,7 @@ export default class Index extends Component {
   state = {
     showMultiArray: [], // 时间选择器显示的时间
     ymdArr: [], // 年月日的数组
+    selectDate: '', // 选中的时间
     prevIndex: 0 // 选择前的 第一列的index
   }
 
@@ -122,8 +123,6 @@ export default class Index extends Component {
       date: new Date(date),
       selectDate: selectDate
     })
-    console.log(date)
-    console.log(selectDate)
   }
   // 时间选择器 end ===================
 
@@ -133,9 +132,7 @@ export default class Index extends Component {
     return (
       <View className='index'>
         <View className="info-item">
-          <View className="item-title">
-            预约时间
-          </View>
+          <View className="item-title">预约时间</View>
           <Picker 
             mode='multiSelector' 
             range={this.state.showMultiArray} 

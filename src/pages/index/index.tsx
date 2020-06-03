@@ -56,6 +56,26 @@ export default class Index extends Component<any, any> {
             <Text>图像识别</Text>
           </View>
         </View>
+        <View className="item" onClick={this.goIndex.bind(this, 'animation')}>
+          <View className="item-title">
+            <Text>动画</Text>
+          </View>
+        </View>
+        <View className="item" onClick={this.goIndex.bind(this, 'code')}>
+          <View className="item-title">
+            <Text>验证码</Text>
+          </View>
+        </View>
+        <View className="item" onClick={this.goIndex.bind(this, 'setInterval')}>
+          <View className="item-title">
+            <Text>倒计时</Text>
+          </View>
+        </View>
+        <View className="item" onClick={this.goIndex.bind(this, 'progress')}>
+          <View className="item-title">
+            <Text>进度条</Text>
+          </View>
+        </View>
 
       </View>
     );

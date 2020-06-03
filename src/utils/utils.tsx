@@ -50,3 +50,7 @@ export function request2({url, data, method, header}) {
     })
   })
 }
+
+export function trim(str) {
+  return str.replace(/^\s+|\s+$/g, '')
+}

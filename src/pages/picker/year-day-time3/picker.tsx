@@ -6,8 +6,6 @@ import './picker.scss'
 export default class Index extends Component<any, any> {
 
   state = {
-    seriesList: [], // 设备类别
-    productSeries: '',
     showMultiArray: [], // 时间选择器显示的时间
     ymdArr: [], // 年月日的数组
     selectDate: ''
