@@ -7,6 +7,9 @@ export default class ImageIndex extends Component<any, any> {
   config: Config = {
     navigationBarTitleText: '图像识别'
   }
+  state = {
+    res: ''
+  }
 
   // 选择照片
   chooseImg(type) {
@@ -30,7 +33,6 @@ export default class ImageIndex extends Component<any, any> {
               url = 'https://aip.baidubce.com/rest/2.0/ocr/v1/general?access_token='
             }
             self.getAccessToken({
-              type: type,
               url,
               data: {image: res.data}
             })
@@ -40,7 +42,7 @@ export default class ImageIndex extends Component<any, any> {
     })
     .catch(err => console.log(err))
   }
-  getAccessToken({type, url, data}) {
+  getAccessToken({url, data}) {
     let self = this
     Taro.request({  // 获取ip
       // grant_type： 必须参数，固定为client_credentials；
@@ -63,8 +65,26 @@ export default class ImageIndex extends Component<any, any> {
         },
         data: data,
         method: 'POST',
-        success: function (e) {
+        success: (e) => {
           console.log(e)
+          let data = e.data
+          let res = ''
+
+          if (data.words_result) {
+
+            // 文字识别
+            for (let item of data.words_result) {
+                res += item.words
+            }
+          } else {
+            // 图片识别
+            for (let item of data.result) {
+              res += item.root + ' ' + item.keyword + ' 丨 '
+            }
+          }
+          this.setState({
+            res
+          })
         }
       })
   }
@@ -100,6 +120,11 @@ export default class ImageIndex extends Component<any, any> {
           </View>
         </View>
 
+
+        <View style='margin-top: 50rpx; padding-top: 20rpx;'>
+          识图获得的结果:
+          <View>{this.state.res}</View>
+        </View>
       </View>
     );
   }
